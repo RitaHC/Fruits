@@ -74,6 +74,12 @@ app.get('/fruits/seed', (req,res)=> {
     })
 })
 
+app.get('/fruits', (req, res)=> {
+    Fruit.find({})
+        .then(fruits => res.json({fruits: fruits}))
+        .catch(err=> console.log(`The following error occured \n` ,error))
+})
+
 /////////////////////////////////////
 //// Server Listener             ////
 /////////////////////////////////////
